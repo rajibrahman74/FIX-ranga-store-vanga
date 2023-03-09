@@ -47,6 +47,7 @@ const addToCart = (id, price) => {
 
   updateTaxAndCharge();
   document.getElementById("total-Products").innerText = count;
+  updateTotal();
 };
 
 const showProductDetails = (product_id) => {
@@ -75,7 +76,6 @@ const updatePrice = (id, value) => {
   const convertedOldPrice = getInputValue(id);
   const convertPrice = parseFloat(value);
   const total = convertedOldPrice + convertPrice;
-//   document.getElementById(id).innerText = Math.round(total);
   document.getElementById(id).innerText = total.toFixed(2);
 };
 

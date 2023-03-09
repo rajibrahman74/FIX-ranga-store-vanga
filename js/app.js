@@ -43,21 +43,21 @@ let count = 0;
 
 const addToCart = (id, price) => {
   count = count + 1;
-  updatePrice("price", value);
+  updatePrice("price", price);
 
   updateTaxAndCharge();
   document.getElementById("total-Products").innerText = count;
 };
 
 const showProductDetails = (product_id) => {
-  console.log(product_id);
+//   console.log(product_id);
   fetch(`https://fakestoreapi.com/products/${product_id}`)
     .then((res) => res.json())
     .then((data) => showProductDetailsInModal(data));
 };
 
 const showProductDetailsInModal = (product_details) => {
-  console.log(product_details);
+//   console.log(product_details);
   setInnerText("exampleModalLabel", product_details.title);
   setInnerText("product_id", product_details.id);
   setInnerText("modal_body", product_details.description);

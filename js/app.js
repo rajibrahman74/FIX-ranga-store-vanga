@@ -51,21 +51,17 @@ const addToCart = (id, price) => {
 };
 
 const showProductDetails = (product_id) => {
-//   console.log(product_id);
   fetch(`https://fakestoreapi.com/products/${product_id}`)
     .then((res) => res.json())
     .then((data) => showProductDetailsInModal(data));
 };
 
 const showProductDetailsInModal = (product_details) => {
-   console.log();
-//   console.log(product_details);
+  console.log();
   setInnerText("exampleModalLabel", product_details.title);
   setInnerText("productId", product_details.id);
   setInnerText("modal_body", product_details.description);
   setInnerText("rating", product_details.rating.rate);
-   // const modalTitle = document.getElementById("exampleModalLabel");
-   // modalTitle.innerText = product_details.title;
 };
 
 const getInputValue = (id) => {
@@ -89,18 +85,16 @@ const setInnerText = (id, value) => {
 
 // update delivery charge and total Tax
 const updateTaxAndCharge = () => {
-  const priceConverted = getInputValue("price")
-  if (priceConverted > 200) {
-    setInnerText("delivery-charge", 30);
-    setInnerText("total-tax", priceConverted * 0.2);
-  }
-  if (priceConverted > 400) {
-    setInnerText("delivery-charge", 50);
-    setInnerText("total-tax", priceConverted * 0.3);
-  }
+  const priceConverted = getInputValue("price");
   if (priceConverted > 500) {
     setInnerText("delivery-charge", 60);
     setInnerText("total-tax", priceConverted * 0.4);
+  } else if (priceConverted > 400) {
+    setInnerText("delivery-charge", 50);
+    setInnerText("total-tax", priceConverted * 0.3);
+  } else if (priceConverted > 200) {
+    setInnerText("delivery-charge", 30);
+    setInnerText("total-tax", priceConverted * 0.2);
   }
 };
 
